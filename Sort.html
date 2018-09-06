@@ -8,6 +8,7 @@
 </head>
 <body>
   <script>
+  // 快速排序
   function quickSort(arr){
     if(arr.length <= 1){
       return arr;
@@ -26,6 +27,7 @@
     }
     return quickSort(left).concat([midNum], quickSort(right))
   }
+  // 冒泡排序（已优化）
   function bubbleSort(arr){
     var flag = true,
         out = 0,
@@ -48,8 +50,16 @@
     }
     console.log(arr)
   }
-  var arr = [11,32,6,346,2,4,9,10]
-  bubbleSort(arr )
+  //JavaScript的sort的比较函数，用于定义排序规则
+  function ascent (a, b) {
+    return a - b;
+  }
+  var arr1 = [11,32,6,346,2,4,9,10,32,4234]
+  var arr2 = [11,32,6,346,2,4,9,10]
+  var arr3 = [1,234,,2,3,5,34,5,6,3,2,36,234,442]
+  console.log(quickSort(arr1))
+  bubbleSort(arr2)
+  console.log(arr3.sort(ascent))
   </script>
 </body>
 </html>
