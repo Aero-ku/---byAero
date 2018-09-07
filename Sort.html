@@ -26,6 +26,7 @@
     }
     return quickSort(left).concat([midNum], quickSort(right))
   }
+  //冒泡排序
   function bubbleSort(arr){
     var flag = true,
         out = 0,
@@ -48,8 +49,25 @@
     }
     console.log(arr)
   }
-  var arr = [11,32,6,346,2,4,9,10]
-  bubbleSort(arr )
+  // 选择排序 升序
+  function selectSort(arr){
+    var len = arr.length;
+    var minIndex, temp;
+    for(var i = 0; i < len - 1; i++){
+      minIndex = i;
+      for(var j = i; j < len; j++){
+        if(arr[j] < arr[minIndex]){
+          minIndex = j;
+        }
+      }
+      temp = arr[i];
+      arr[i] = arr[minIndex];
+      arr[minIndex] = temp;
+    }
+    return arr;
+  }
+  var arr = [11,32,6,346,2,4,9,123,24,52,23,10]
+  console.log(selectSort(arr))
   </script>
 </body>
 </html>
