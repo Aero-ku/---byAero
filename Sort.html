@@ -67,18 +67,49 @@
     }
     return arr;
   }
-  var arr = [11,32,6,346,2,4,9,123,24,52,23,10]
-  console.log(selectSort(arr))
+
   //JavaScript的sort的比较函数，用于定义排序规则
   function ascent (a, b) {
     return a - b;
   }
-  var arr1 = [11,32,6,346,2,4,9,10,32,4234]
+  function getMinNumber(arr){
+    var minNum = arr[0];
+    var len = arr.length;
+    for(var i = 0; i < len; i++){
+      if(minNum > arr[i]){
+        var temp = minNum;
+        minNum = arr[i];
+        arr[i] = temp;
+      }
+    }
+    console.log(minNum);
+  }
+  var arr = [11,32,6,346,2,4,9,123,24,52,23,10]
+  // console.log(selectSort(arr))
+  var arr1 = [1,11,32,6,346,2,4,9,10,32,4234]
   var arr2 = [11,32,6,346,2,4,9,10]
   var arr3 = [1,234,,2,3,5,34,5,6,3,2,36,234,442]
-  console.log(quickSort(arr1))
-  bubbleSort(arr2)
-  console.log(arr3.sort(ascent))
+  // console.log(quickSort(arr1))
+  // bubbleSort(arr2)
+  // console.log(arr3.sort(ascent))
+  getMinNumber(arr1);
+//将该数组[1,2,3,4,[5,6,7,8],[9,10,11,[12,13,14,15,[16],17],18],19,20]
+//转化成[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+  var arr = [1,2,3,4,[5,6,7,8],[9,10,11,[12,13,14,15,[16],17],18],19,20];
+  console.log(arr);
+  console.log(reverseArray(arr));
+function reverseArray(arr,newArr){
+  var len = arr.length,
+      newArr = newArr || [];
+  for(var i = 0; i < len; i++){
+    if(typeof arr[i] == 'object'){
+      reverseArray(arr[i],newArr);
+    } else {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
   </script>
 </body>
 </html>
