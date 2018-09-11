@@ -54,7 +54,7 @@
   function selectSort(arr){
     var len = arr.length;
     var minIndex, temp;
-    for(var i = 0; i < len - 1; i++){
+    for(var i = 0; i < len - 1; i++){//因为后面i要与后一位进行比较，因此就i < len -1
       minIndex = i;
       for(var j = i; j < len; j++){
         if(arr[j] < arr[minIndex]){
@@ -67,7 +67,17 @@
     }
     return arr;
   }
-
+  // 插入排序
+  function insertSort(arr){
+    var len = arr.length;
+    for(var i = 1; i < len; i++){
+      for(var j = i; j > 0 && arr[j] < arr[j-1]; j--){//升序
+          var temp = arr[j];
+          arr[j] = arr[j-1];
+          arr[j-1] = temp;
+      }
+    }
+  }
   //JavaScript的sort的比较函数，用于定义排序规则
   function ascent (a, b) {
     return a - b;
@@ -93,23 +103,6 @@
   // bubbleSort(arr2)
   // console.log(arr3.sort(ascent))
   getMinNumber(arr1);
-//将该数组[1,2,3,4,[5,6,7,8],[9,10,11,[12,13,14,15,[16],17],18],19,20]
-//转化成[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-  var arr = [1,2,3,4,[5,6,7,8],[9,10,11,[12,13,14,15,[16],17],18],19,20];
-  console.log(arr);
-  console.log(reverseArray(arr));
-function reverseArray(arr,newArr){
-  var len = arr.length,
-      newArr = newArr || [];
-  for(var i = 0; i < len; i++){
-    if(typeof arr[i] == 'object'){
-      reverseArray(arr[i],newArr);
-    } else {
-      newArr.push(arr[i]);
-    }
-  }
-  return newArr;
-}
   </script>
 </body>
 </html>

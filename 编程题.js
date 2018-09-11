@@ -26,3 +26,18 @@ function reverseArray(arr,newArr){
   }
   return newArr;
 }
+//插入排序
+function insertSort(arr){
+  var len = arr.length;
+  var temp, current;
+  for(var i = 1; i < len; i++){
+    for(var j = i; j > 0 && arr[j] < arr[j-1]; j--){
+      temp = arr[j];
+      arr[j] = arr[j-1];
+      arr[j-1] = temp;
+    }
+  }
+  return arr;
+}
+
+
